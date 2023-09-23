@@ -1,6 +1,10 @@
 # Acme Health Tracker 
 
-"A new Flutter project."
+## The installable apk of the app can be installed from https://drive.google.com/file/d/1tdfaD5bzuVOPzO76GfgIkOUU0vKWU0Mk/view?usp=sharing
+
+## Here is a quick glimpse of the app
+![image](https://github.com/yogesh-soni-4/fitts/assets/112860792/5d268b39-6471-4fde-8546-9cdd5e26db69)
+
 
 ## Getting Started
 
