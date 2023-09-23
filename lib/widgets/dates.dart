@@ -68,8 +68,12 @@ class _DatesState extends State<Dates> {
     });
   }
 
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     // DateTime date = DateTime.now().subtract(const Duration(days: 3));
     DateTime date =
         DateTime.now().subtract(Duration(days: DateTime.now().weekday - 1));
@@ -115,7 +119,7 @@ class _DatesState extends State<Dates> {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 48.0),
                 child: Container(
-                  height: 110,
+                  height: height * 0.15,
                   child: Center(
                     child: Column(
                       children: [
@@ -158,7 +162,10 @@ class _DatesState extends State<Dates> {
 
             return Row(
               children: [
-                SizedBox(width: 15),
+                SizedBox(
+                  // width: 15,
+                  width: width * 0.04,
+                ),
                 InfoStat(
                   icon: Icons.bolt,
                   iconColor: Color.fromARGB(255, 255, 179, 0),
@@ -167,7 +174,10 @@ class _DatesState extends State<Dates> {
                   label: 'Exercise Duration',
                   value: items.x.toString(),
                 ),
-                SizedBox(width: 15),
+                SizedBox(
+                  // width: 15,
+                  width: width * 0.04,
+                ),
                 InfoStat(
                   icon: FontAwesomeIcons.weightScale,
                   iconColor: Color(0xff535bed),
@@ -176,7 +186,10 @@ class _DatesState extends State<Dates> {
                   label: 'Weight',
                   value: items.w.toString() + " KG",
                 ),
-                SizedBox(width: 15),
+                SizedBox(
+                  // width: 15,
+                  width: width * 0.04,
+                ),
                 InfoStat(
                   icon: Icons.favorite_outline,
                   iconColor: Color(0xffe11e6c),
@@ -185,7 +198,10 @@ class _DatesState extends State<Dates> {
                   label: 'Blood Pressure',
                   value: items.b.toString() + " mmHg",
                 ),
-                SizedBox(width: 15),
+                SizedBox(
+                  // width: 15,
+                  width: width * 0.04,
+                ),
               ],
             );
           },
@@ -235,12 +251,18 @@ class _DateBoxState extends State<DateBox> {
     fetchItems(widget.date);
   }
 
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return GestureDetector(
       child: Container(
-        width: 43,
-        height: 66,
+        // width: 43,
+        width: width * 0.116,
+        // height: 66,
+        height: height * 0.076,
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
         decoration: BoxDecoration(
           gradient: widget.date.weekday == widget.activeday
@@ -264,14 +286,14 @@ class _DateBoxState extends State<DateBox> {
                 daysOfWeek[widget.date.weekday]!,
                 style: const TextStyle(
                   fontSize: 10,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               // const SizedBox(height: 0),
               Text(widget.date.day.toString().padLeft(2, '0'),
                   style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                   )),
             ],
           ),

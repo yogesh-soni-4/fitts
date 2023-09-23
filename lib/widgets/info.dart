@@ -2,14 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Info extends StatelessWidget {
-  const Info({Key? key}) : super(key: key);
+  Info({Key? key}) : super(key: key);
 
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: EdgeInsets.symmetric(
+            // horizontal: 30,
+            horizontal: width * 0.06,
+          ),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
@@ -22,7 +29,8 @@ class Info extends StatelessWidget {
               ),
               SizedBox(width: 8),
               Container(
-                height: 50,
+                // height: 50,
+                height: height * 0.072,
                 child: Image.asset(
                   "images/aasf.gif",
                 ),
@@ -31,13 +39,14 @@ class Info extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 5,
+          // height: 5,
+          height: height * 0.006,
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
+            children: [
               Stats(value: '90', unit: 'BPM', label: 'Heart Rate'),
               Stats(value: '345', unit: 'kcal', label: 'Calories'),
               Stats(value: '3.6', unit: 'km', label: 'Distance'),
@@ -64,14 +73,20 @@ class Stats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size, height, width;
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Container(
-      height: 70,
-      width: 75,
+      // height: 70,
+      height: height * 0.1,
+      // width: 75,
+      width: width * 0.21,
       padding: const EdgeInsets.symmetric(
         vertical: 10,
         horizontal: 8,
       ),
-      margin: const EdgeInsets.symmetric(vertical: 5),
+      margin: const EdgeInsets.only(top: 5),
       decoration: BoxDecoration(
         color: Colors.deepPurple.shade50,
         borderRadius: BorderRadius.circular(15),
@@ -88,7 +103,7 @@ class Stats extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+        // mainAxisSize: MainAxisSize.min,
         children: [
           Text.rich(
             TextSpan(

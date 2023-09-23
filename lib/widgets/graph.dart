@@ -3,14 +3,19 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 
 class Graph extends StatelessWidget {
-  const Graph({Key? key}) : super(key: key);
+  Graph({Key? key}) : super(key: key);
 
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Container(
       child: SizedBox(
         width: double.infinity,
-        height: 160,
+        // height: 160,
+        height: height * 0.23,
         child: GraphArea(),
       ),
     );
@@ -36,6 +41,7 @@ class _GraphAreaState extends State<GraphArea>
     DataPoint(day: 5, steps: Random().nextInt(100)),
     DataPoint(day: 6, steps: Random().nextInt(100)),
     DataPoint(day: 7, steps: Random().nextInt(100)),
+    DataPoint(day: 8, steps: Random().nextInt(100)),
     DataPoint(day: 8, steps: Random().nextInt(100)),
   ];
 

@@ -48,8 +48,13 @@ class VideoState extends State<Splash> with SingleTickerProviderStateMixin {
     startTime();
   }
 
+  var size, height, width;
+
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -69,10 +74,12 @@ class VideoState extends State<Splash> with SingleTickerProviderStateMixin {
                     style: GoogleFonts.acme(fontSize: 24),
                   ),
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Center(
                   child: Text(
-                    textAlign:TextAlign.center,
+                    textAlign: TextAlign.center,
                     "Fueling Healthy Habits,\nTogether 💪",
                     style: GoogleFonts.acme(fontSize: 24),
                   ),
@@ -80,7 +87,7 @@ class VideoState extends State<Splash> with SingleTickerProviderStateMixin {
                 Spacer(),
                 Center(
                   child: Text(
-                    textAlign:TextAlign.center,
+                    textAlign: TextAlign.center,
                     "A PRODUCT OF ACME COMPANY LTD.",
                     style: GoogleFonts.montserrat(
                         fontSize: 12, fontWeight: FontWeight.w400),

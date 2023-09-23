@@ -24,10 +24,15 @@ class _CurrentProgramsState extends State<ChoicePage> {
     });
   }
 
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
     return Container(
-      height: 213,
+      // height: 213,
+      height: height * 0.29,
       width: double.infinity,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(
@@ -47,22 +52,25 @@ class _CurrentProgramsState extends State<ChoicePage> {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 30,
+            padding: EdgeInsets.symmetric(
+              // vertical: 10,
+              vertical: height * 0.015,
+              // horizontal: 30,
+              horizontal: height * 0.065,
             ),
             child: Row(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Choose the user mode',
-                  style: GoogleFonts.sanchez(
+                  style: GoogleFonts.roboto(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 SizedBox(
-                  width: 6,
+                  // width: 6,
+                  width: width * 0.006,
                 ),
                 const Icon(
                   Icons.person,
@@ -78,6 +86,7 @@ class _CurrentProgramsState extends State<ChoicePage> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
                     child: Padding(
@@ -85,8 +94,10 @@ class _CurrentProgramsState extends State<ChoicePage> {
                       child: Column(
                         children: [
                           Container(
-                            height: 120,
-                            width: 120,
+                            // height: 120,
+                            height: height * 0.16,
+                            // width: 120,
+                            width: width * 0.34,
                             decoration: BoxDecoration(
                                 color: Colors.deepPurple[100],
                                 borderRadius: BorderRadius.circular(10),
@@ -110,7 +121,7 @@ class _CurrentProgramsState extends State<ChoicePage> {
                               "Parent",
                               style: GoogleFonts.montserrat(
                                 fontSize: 18,
-                                fontWeight: FontWeight.w500,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ),
@@ -132,8 +143,10 @@ class _CurrentProgramsState extends State<ChoicePage> {
                     child: Column(
                       children: [
                         Container(
-                          height: 120,
-                          width: 120,
+                          // height: 120,
+                          height: height * 0.16,
+                          // width: 120,
+                          width: width * 0.35,
                           decoration: BoxDecoration(
                               color: Colors.deepPurple[100],
                               borderRadius: BorderRadius.circular(10),
@@ -158,7 +171,7 @@ class _CurrentProgramsState extends State<ChoicePage> {
                             "Child",
                             style: GoogleFonts.montserrat(
                               fontSize: 18,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
@@ -166,11 +179,11 @@ class _CurrentProgramsState extends State<ChoicePage> {
                     ),
                   ),
                   onTap: () {
-                      setState(() {
-                        selected_date = DateTime.now();
-                        Get.to(() => ChildPage());
-                      });
-                    },
+                    setState(() {
+                      selected_date = DateTime.now();
+                      Get.to(() => ChildPage());
+                    });
+                  },
                   // onTap: () => Get.to(() => ItemListScreen()),
                 ),
               ],
@@ -197,70 +210,3 @@ class _CurrentProgramsState extends State<ChoicePage> {
   }
 }
 
-// class Program extends StatelessWidget {
-//   final FitnessProgram program;
-//   final bool active;
-//   final Function(ProgramType) onTap;
-
-//   const Program({
-//     Key? key,
-//     required this.program,
-//     this.active = false,
-//     required this.onTap,
-//   }) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: () {
-//         onTap(program.type);
-//       },
-//       child: Container(
-//         height: 100,
-//         width: 180,
-//         decoration: BoxDecoration(
-//           borderRadius: BorderRadius.circular(15),
-//           image: DecorationImage(
-//             colorFilter: ColorFilter.mode(
-//               active
-//                   ? const Color(0xff1ebdf8).withOpacity(.8)
-//                   : Colors.white.withOpacity(.8),
-//               BlendMode.lighten,
-//             ),
-//             image: program.image,
-//             fit: BoxFit.cover,
-//           ),
-//         ),
-//         alignment: Alignment.bottomLeft,
-//         padding: const EdgeInsets.all(15),
-//         child: DefaultTextStyle.merge(
-//           style: TextStyle(
-//             color: active ? Colors.white : Colors.black,
-//             fontSize: 10,
-//             fontWeight: FontWeight.w500,
-//           ),
-//           child: Column(
-//             mainAxisSize: MainAxisSize.min,
-//             crossAxisAlignment: CrossAxisAlignment.start,
-//             children: [
-//               Text(program.name),
-//               Row(
-//                 children: [
-//                   // Text(program.cals),
-//                   const SizedBox(width: 15),
-//                   Icon(
-//                     Icons.timer,
-//                     size: 10,
-//                     color: active ? Colors.white : Colors.black,
-//                   ),
-//                   const SizedBox(width: 5),
-//                   // Text(program.time),
-//                 ],
-//               )
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

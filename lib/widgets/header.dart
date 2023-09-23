@@ -14,65 +14,15 @@ class AppHeader extends StatelessWidget {
   }
 
   var name = FirebaseFirestore.instance.collection("products").snapshots();
-
+  var size, height, width;
   @override
   Widget build(BuildContext context) {
-    return
-        // Stack(
-        //   children: [
-        //     CustomPaint(
-        //       painter: HeaderPainter(),
-        //       size: const Size(double.infinity, 200),
-        //     ),
-        //     // Positioned(
-        //     //   top: 20,
-        //     //   left: 20,
-        //     //   child: IconButton(
-        //     //     onPressed: () {},
-        //     //     icon: const Icon(
-        //     //       Icons.menu,
-        //     //       color: Colors.white,
-        //     //     ),
-        //     //   ),
-        //     // ),
-        //     const Positioned(
-        //       top: 35,
-        //       right: 40,
-        //       child: CircleAvatar(
-        //         minRadius: 25,
-        //         maxRadius: 25,
-        //      s   foregroundImage: AssetImage('assets/profile.jpg'),
-        //       ),
-        //     ),
-        //     Positioned(
-        //       left: 33,
-        //       bottom: 20,
-        //       child: Column(
-        //         crossAxisAlignment: CrossAxisAlignment.start,
-        //         children: const [
-        //           Text(
-        //             'Hello',
-        //             style: TextStyle(
-        //               color: Colors.white,
-        //               fontWeight: FontWeight.w300,
-        //               fontSize: 20,
-        //             ),
-        //           ),
-        //           Text(
-        //             'Michaele',
-        //             style: TextStyle(
-        //               color: Colors.white,
-        //               fontWeight: FontWeight.bold,
-        //               fontSize: 26,
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     )
-        //   ],s
-        // ),
-        Container(
-      height: 100,
+    size = MediaQuery.of(context).size;
+    height = size.height;
+    width = size.width;
+    return Container(
+      // height :100,
+      height: height * 0.15,
       width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
@@ -93,19 +43,22 @@ class AppHeader extends StatelessWidget {
               child: Image.asset(
                 "images/avatar.webp",
                 fit: BoxFit.fitHeight,
-                height: 67,
+                // height: 67,
+                height: height * 0.085,
               ),
             ),
           ),
           SizedBox(
-            width: 12,
+            // width: 12,
+            width: width * 0.019,
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             // mainAxisAlignment: MainAxisAlignment.,
             children: [
               SizedBox(
-                height: 15,
+                // height: 15,
+                height: height * 0.022,
               ),
               Row(
                 // crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,28 +106,4 @@ class AppHeader extends StatelessWidget {
       ),
     );
   }
-}
-
-class HeaderPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    Paint backColor = Paint()..color = const Color(0xff18b0e8);
-    Paint circles = Paint()..color = Colors.white.withAlpha(40);
-
-    canvas.drawRect(
-      Rect.fromPoints(
-        const Offset(0, 0),
-        Offset(size.width, size.height),
-      ),
-      backColor,
-    );
-
-    canvas.drawCircle(Offset(size.width * .65, 30), 20, circles);
-    canvas.drawCircle(Offset(size.width * .50, 50), 10, circles);
-    canvas.drawCircle(Offset(size.width * .60, 130), 10, circles);
-    canvas.drawCircle(Offset(size.width - 10, size.height - 10), 20, circles);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

@@ -41,9 +41,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 55,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10),
+        padding: const EdgeInsets.only(
+          right: 12,
+          left: 12,
+          bottom: 12,
+          top: 2,
+        ),
         child: GNav(
           rippleColor: Colors.grey[300]!,
           hoverColor: Colors.grey[300]!,

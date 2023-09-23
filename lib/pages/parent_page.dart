@@ -47,35 +47,37 @@ class _ParentPageState extends State<ParentPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: true,
         backgroundColor: Colors.grey.shade50,
         appBar: ParentMainAppBar(appBar: AppBar()),
-        body: Column(
-          children: [
-            Dates(),
-            Steps(),
-            Graph(),
-            // Divider(height: 20),
-            Info(),
-            Stats(),
-            // BottomNavigation(),
-            // SizedBox(height: 45),
-            SizedBox(height: 15),
-            Row(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 109,
-                ),
-                FormButton(),
-                SizedBox(
-                  width: 45,
-                ),
-                EditPage()
-              ],
-            ),
-            // SizedBox(height: 15),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Dates(),
+              Steps(),
+              Graph(),
+              // Divider(height: 20),
+              Info(),
+              Stats(),
+              // BottomNavigation(),
+              // SizedBox(height: 45),
+              SizedBox(height: 15),
+              Row(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 109,
+                  ),
+                  FormButton(),
+                  SizedBox(
+                    width: 45,
+                  ),
+                  EditPage()
+                ],
+              ),
+              // SizedBox(height: 15),
+            ],
+          ),
         ),
       ),
     );
