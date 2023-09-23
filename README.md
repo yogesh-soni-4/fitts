@@ -1,4 +1,4 @@
-# fitts
+# Acme Health Tracker 
 
 "A new Flutter project."
 
