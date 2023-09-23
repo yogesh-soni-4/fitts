@@ -1,6 +1,8 @@
-# fitts
+# Acme Health Tracker 
 
-"A new Flutter project."
+## Here is a quick glimpse of the app
+![image](https://github.com/yogesh-soni-4/fitts/assets/112860792/5d268b39-6471-4fde-8546-9cdd5e26db69)
+
 
 ## Getting Started
 
